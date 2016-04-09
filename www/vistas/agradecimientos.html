@@ -1,0 +1,54 @@
+<style> 
+ .agradecimientos{  
+  min-height: 150px; 
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px; 
+  box-shadow: 5px 5px 10px #888888;
+}   
+</style>  
+<ion-side-menus>
+  <ion-side-menu side="left" ng-include src="'vistas/menu.html'"></ion-side-menu> 
+  <ion-side-menu-content ng-init="init()" ng-controller="agradecimientos">
+    <ion-pane>      
+      <ion-content> 
+   			<div class="bar bar-header item-input-inset color-principal-green">
+          <button class="button button-icon icon ion-navicon" ng-click="toggleLeft()"></button>
+	        <label class="item-input-wrapper color-principal-green">
+	         <i class="icon ion-ios-search placeholder-icon"></i> 
+           <input 
+              type="text" 
+              placeholder="Buscar Empresa" 
+              class="mi-input"
+              ng-model="NombreEmpresa"
+              ng-enter="{{NombreEmpresa}}"> 
+	        </label> 
+          <button class="button button-icon icon ion-qr-scanner" ng-click="EscanearQr()">
+          </button>
+        </div> 
+        <div class="container">
+          <div class="agradecimientos">
+            <img  src="img/causas/{{nombreCausa}}.jpg" 
+              class="img-responsive" style="width:100%;border-top-left-radius: 8px;    border-top-right-radius: 8px;"/> 
+            <div class="row">  
+              <div class="col  text-center" ><br>
+                <b>{{Empresa}}</b>, Comentapp y el beneficiario agradecen tu contribución.<br><br>
+                Continúa calificando el servicio de las empresas de la red
+                Comentapp y obten más puntos para ayudar a otros.<br><br><br>
+                <img src="img/pantallas/separador.png" class="img-responsive"/>
+                <br><br>
+                <img src="img/empresas/{{Empresa}}.png" class="img-responsive" style="width:120px;"/><br><br>
+              </div> 
+            </div> 
+          </div>  <br>
+          <div class="row"> 
+            <div class="col  text-center" >
+              <img class="img-responsive text-center" ui-sref="calificarempresas" 
+              src="img/CalificarEmpresas.png" style="width:110px;" />
+            </div>
+          </div>
+        </div>
+      </ion-content>
+    </ion-pane>
+  </ion-side-menu-content>
+</ion-side-menus  >

@@ -1,0 +1,113 @@
+<ion-side-menus>
+  <ion-side-menu side="left" ng-include src="'vistas/menu.html'"></ion-side-menu> 
+  <ion-side-menu-content ng-controller="calificarempresas">
+    <ion-pane >      
+      <ion-content >
+        <div class="bar bar-header item-input-inset color-principal-green">
+          <button class="button button-icon icon ion-navicon" ng-click="toggleLeft()">
+          </button>
+          <label class="item-input-wrapper color-principal-green">
+            <i class="icon ion-ios-search placeholder-icon"></i>
+              <input 
+                type="text" 
+                placeholder="Buscar Empresa" 
+                class="mi-input"
+                ng-model="NombreEmpresa"
+                ng-enter="{{NombreEmpresa}}"/>
+              </label>  
+              <button class="button button-icon icon ion-qr-scanner" ng-click="EscanearQr()"></button>
+        </div>
+        <div ng-model="contenedordeempresas">
+          <div style="margin-top:10px;" ng-repeat="empresa in Empresas" class="container" >
+            <div class="company shadow-company-div">
+              <div class="row">
+                <div class="col"> 
+                  <div class="row"> 
+                    <div class="col ">   
+                      <span ng-switch on="empresa.Categoria">
+                        <img ng-switch-when="Educación"
+                        src="img/categorias/educacion.png" 
+                        class="img-responsive float-left-item"
+                        style="margin-right: 10px;width:40px;"/>
+                        <img ng-switch-when="Salud"
+                        src="img/categorias/salud.png" 
+                        class="img-responsive float-left-item"
+                        style="margin-right: 10px;width:40px;"/>
+                        <img ng-switch-when="Transporte"
+                        src="img/categorias/transporte.png" 
+                        class="img-responsive float-left-item"
+                        style="margin-right: 10px;width:40px;"/>
+                        <img ng-switch-when="Restaurante"
+                        src="img/categorias/restaurante.png" 
+                        class="img-responsive float-left-item"
+                        style="margin-right: 10px;width:40px;"/>
+                        <img ng-switch-when="Concesionario"
+                        src="img/categorias/concesionario.png" 
+                        class="img-responsive float-left-item"
+                        style="margin-right: 10px;width:40px;"/>
+                        <img ng-switch-when="Supermercado"
+                        src="img/categorias/supermercado.png" 
+                        class="img-responsive float-left-item"
+                        style="margin-right: 10px;width:40px;"/>
+                        <img ng-switch-when="Moda"
+                        src="img/categorias/moda.png" 
+                        class="img-responsive float-left-item"
+                        style="margin-right: 10px;width:40px;"/>
+                        <img ng-switch-when="Librería"
+                        src="img/categorias/libreria.png" 
+                        class="img-responsive float-left-item"
+                        style="margin-right: 10px;width:40px;"/>
+                        <img ng-switch-when="Telefonía"
+                        src="img/categorias/telefonia.png" 
+                        class="img-responsive float-left-item"
+                        style="margin-right: 10px;width:40px;"/>
+                        <img ng-switch-when="Hospital"
+                        src="img/categorias/hospital.png" 
+                        class="img-responsive float-left-item"
+                        style="margin-right: 10px;width:40px;"/>
+                        <img ng-switch-when="Aeropuerto"
+                        src="img/categorias/aeropuerto.png" 
+                        class="img-responsive float-left-item"
+                        style="margin-right: 10px;width:40px;"/>
+                        <img ng-switch-when="Hotelería"
+                        src="img/categorias/hospital.png" 
+                        class="img-responsive float-left-item"
+                        style="margin-right: 10px;width:40px;"/>
+                        <img ng-switch-when="Diversión"
+                        src="img/categorias/diversion.png" 
+                        class="img-responsive float-left-item"
+                        style="margin-right: 10px;width:40px;"/>
+                      </span>
+
+                      <span class="  companyname float-left-item" ng-class="{'colorModa':empresa.Categoria == 'Moda', 'colorDiversion':empresa.Categoria == 'Diversión', 'colorHoteleria':empresa.Categoria == 'Hotelería', 'colorAeropuerto':empresa.Categoria == 'Aeropuerto', 'colorHospital':empresa.Categoria == 'Hospital', 'colorTelefonia':empresa.Categoria == 'Telefonía', 'colorLibreria':empresa.Categoria == 'Librería', 'colorSalud':empresa.Categoria == 'Salud', 'colorSupermercado':empresa.Categoria == 'Supermercado', 'colorConsecionario':empresa.Categoria == 'Concesionario', 'colorResutaurante':empresa.Categoria == 'Restaurante', 'colorTransporte':empresa.Categoria == 'Transporte', 'colorEducacion':empresa.Categoria == 'Educación'}">{{empresa.Nombre}}
+                      </span> 
+                      <br/>
+                      <span class=" category-style float-left-item"
+                      ng-class="{'colorModa':empresa.Categoria == 'Moda', 'colorDiversion':empresa.Categoria == 'Diversión', 'colorHoteleria':empresa.Categoria == 'Hotelería', 'colorAeropuerto':empresa.Categoria == 'Aeropuerto', 'colorHospital':empresa.Categoria == 'Hospital', 'colorTelefonia':empresa.Categoria == 'Telefonía', 'colorLibreria':empresa.Categoria == 'Librería', 'colorSalud':empresa.Categoria == 'Salud', 'colorSupermercado':empresa.Categoria == 'Supermercado', 'colorConsecionario':empresa.Categoria == 'Concesionario', 'colorResutaurante':empresa.Categoria == 'Restaurante', 'colorTransporte':empresa.Categoria == 'Transporte', 'colorEducacion':empresa.Categoria == 'Educación'}">{{empresa.Categoria}}
+                    </span>
+                  </div>
+                </div> 
+                <hr> 
+                <div class="row">
+                  <div class="col "> 
+                    <p>{{empresa.Descripcion}}</p>  
+                  </div> 
+                </div>
+                <div class="row">
+                  <div class="col  text-center">
+                    <div class="cc-selector"> 
+                        <img src="img/btnvermas.png"
+                        ng-click="CalificadorDetalleEmpresa(empresa.id, 
+                        empresa.Nombre, 
+                        empresa.Categoria)" />   
+                    </div> 
+                  </div>
+                </div>
+              </div>
+            </div>     
+          </div> 
+        </div>     <br>
+      </ion-content>
+    </ion-pane> 
+  </ion-side-menu-content>
+</ion-side-menus>

@@ -1,0 +1,237 @@
+<style> 
+#GPSControl{display: none;}
+.GPSControl{  
+    display:inline-block;
+    width:140px;
+    background-repeat:no-repeat;
+    height:24px; 
+}
+.EnviarUbicacionInactivo .GPSControl {        
+  background-image: url("img/gps.png");
+}
+.EnviarUbicacion .GPSControl { 
+ background-image: url("img/pin.png");  
+ padding-left: 18px;
+} 
+#visa, #visa1, #visa2, #visa3, #visa4, #visa5{ 
+  margin    : 0;
+  padding   : 0;
+  display: none;
+  opacity   : 0;
+}
+
+input[type=radio] + label{ 
+    background-repeat:no-repeat;
+    display:inline-block;
+    width:40px;
+    opacity: 0.2;
+    height:40px; 
+}
+
+#visa + label {  
+    background-image: url('img/megusta.png'); 
+}
+#visa1 + label { 
+    background-image: url('img/amor.png'); 
+}
+#visa2 + label {  
+    background-image: url('img/feliz.png'); 
+}
+#visa3 + label {  
+    background-image: url('img/Asombrado.png'); 
+}
+#visa4 + label {  
+    background-image: url('img/Triste.png'); 
+}
+#visa5 + label {  
+    background-image: url('img/furioso.png'); 
+}
+input[type=radio]:checked + label{ 
+    opacity: 1;
+}
+
+#visa:checked + label{ 
+    background-image: url('img/megusta.png');
+}
+#visa1:checked + label{ 
+    background-image: url('img/amor.png');
+}
+#visa2:checked + label{  
+    background-image: url('img/feliz.png');
+}
+#visa3:checked + label{ 
+    background-image: url('img/Asombrado.png');
+}
+#visa4:checked + label{ 
+    background-image: url('img/Triste.png');
+}
+#visa5:checked + label{ 
+    background-image: url('img/furioso.png');
+} 
+</style>   
+<ion-side-menus>
+  <ion-side-menu side="left" ng-include src="'vistas/menu.html'"></ion-side-menu> 
+  <ion-side-menu-content ng-controller="calificadordetalleempresa">
+    <ion-pane >      
+      <ion-content >
+          <div class="bar bar-header item-input-inset color-principal-green">
+            <button 
+              class="button button-icon icon ion-navicon" ng-click="toggleLeft()">
+            </button> 
+            <label class="item-input-wrapper color-principal-green"> 
+              <i class="icon ion-ios-search placeholder-icon"></i> 
+              <input 
+                type="text" 
+                placeholder="Buscar Empresa" 
+                class="mi-input"
+                ng-model="NombreEmpresa"
+                ng-enter="{{NombreEmpresa}}"/> 
+            </label>  
+            <button class="button button-icon icon ion-qr-scanner" ng-click="EscanearQr()">
+            </button> 
+          </div>  
+          <div  class="item-accordion  container company-detail check-element animate-hide shadow-company-div" style="padding:0;margin:5px;" >
+            <div class="row" >
+              <div class="col"> 
+                <div class="row">
+                  <div class="col "> 
+                    <span ng-switch on="categoria">
+                      <img ng-switch-when="Educación"
+                           src="img/categorias/educaciondetalle.png" 
+                           class="img-responsive float-left-item"
+                           style="margin-right: 10px;width:30px;"/>
+                      <img ng-switch-when="Salud"
+                           src="img/categorias/saluddetalle.png" 
+                           class="img-responsive float-left-item"
+                           style="margin-right: 10px;width:30px;"/>                      
+                      <img ng-switch-when="Transporte"
+                           src="img/categorias/transportedetalle.png" 
+                           class="img-responsive float-left-item"
+                           style="margin-right: 10px;width:30px;"/>
+                      <img ng-switch-when="Restaurante"
+                           src="img/categorias/restaurantedetalle.png" 
+                           class="img-responsive float-left-item"
+                           style="margin-right: 10px;width:30px;"/>
+                      <img ng-switch-when="Concesionario"
+                           src="img/categorias/concesionariodetalle.png" 
+                           class="img-responsive float-left-item"
+                           style="margin-right: 10px;width:30px;"/>
+                      <img ng-switch-when="Supermercado"
+                           src="img/categorias/supermercadodetalle.png" 
+                           class="img-responsive float-left-item"
+                           style="margin-right: 10px;width:30px;"/>
+                      <img ng-switch-when="Moda"
+                           src="img/categorias/modadetalle.png" 
+                           class="img-responsive float-left-item"
+                           style="margin-right: 10px;width:30px;"/>
+                      <img ng-switch-when="Librería"
+                           src="img/categorias/libreriadetalle.png" 
+                           class="img-responsive float-left-item"
+                           style="margin-right: 10px;width:30px;"/>
+                      <img ng-switch-when="Telefonía"
+                           src="img/categorias/telefoniadetalle.png" 
+                           class="img-responsive float-left-item"
+                           style="margin-right: 10px;width:30px;"/>
+                      <img ng-switch-when="Hospital"
+                           src="img/categorias/hospitaldetalle.png" 
+                           class="img-responsive float-left-item"
+                           style="margin-right: 10px;width:30px;"/>
+                      <img ng-switch-when="Aeropuerto"
+                           src="img/categorias/aeropuertodetalle.png" 
+                           class="img-responsive float-left-item"
+                           style="margin-right: 10px;width:30px;"/>
+                      <img ng-switch-when="Hotelería"
+                           src="img/categorias/hospitaldetalle.png" 
+                           class="img-responsive float-left-item"
+                           style="margin-right: 10px;width:30px;"/>
+                      <img ng-switch-when="Diversión"
+                           src="img/categorias/diversiondetalle.png" 
+                           class="img-responsive float-left-item"
+                           style="margin-right: 10px;width:30px;"/>
+                    </span> 
+                    <span class="colordetalle companyname "
+                    ng-class="{'colorModa':categoria == 'Moda', 'colorDiversion':categoria == 'Diversión', 'colorHoteleria':categoria == 'Hotelería', 'colorAeropuerto':categoria == 'Aeropuerto', 'colorHospital':categoria == 'Hospital', 'colorTelefonia':categoria == 'Telefonía', 'colorLibreria':categoria == 'Librería', 'colorSalud':categoria == 'Salud', 'colorSupermercado':categoria == 'Supermercado', 'colorConsecionario':categoria == 'Concesionario', 'colorResutaurante':categoria == 'Restaurante', 'colorTransporte':categoria == 'Transporte', 'colorEducacion':categoria == 'Educación'}">{{empresa}}
+                    </span><br>
+                    <span class="colordetalle fuentetitulodescripcion category-style"
+                    ng-class="{'colorModa':categoria == 'Moda', 'colorDiversion':categoria == 'Diversión', 'colorHoteleria':categoria == 'Hotelería', 'colorAeropuerto':categoria == 'Aeropuerto', 'colorHospital':categoria == 'Hospital', 'colorTelefonia':categoria == 'Telefonía', 'colorLibreria':categoria == 'Librería', 'colorSalud':categoria == 'Salud', 'colorSupermercado':categoria == 'Supermercado', 'colorConsecionario':categoria == 'Concesionario', 'colorResutaurante':categoria == 'Restaurante', 'colorTransporte':categoria == 'Transporte', 'colorEducacion':categoria == 'Educación'}">{{categoria}}
+                    </span>
+                   </div>
+                </div> 
+                <hr>
+                <div class="row">
+                  <div class="col "> 
+                    <h6 class="float-left-item"><b>¿Cómo te parecio nuestro servicio?</b>
+                    </h6><br><br> 
+                    <div class="cc-selector">
+                     <input   id="visa" 
+                              type="radio" 
+                              name="puntos" 
+                              value="1"
+                              ng-model="calificacion" />
+                      <label for="visa"></label>
+                     <input   id="visa1"
+                              type="radio"
+                              name="puntos"
+                              value="2"
+                              ng-model="calificacion" />
+                      <label class="drinkcard-cc visa1" for="visa1"></label>
+                      <input  id="visa2"
+                              type="radio"
+                              name="puntos"
+                              value="3"
+                              ng-model="calificacion" />
+                      <label class="drinkcard-cc visa2" for="visa2"></label>
+                      <input  id="visa3"
+                              type="radio"
+                              name="puntos"
+                              value="4"
+                              ng-model="calificacion" />
+                      <label class="drinkcard-cc visa3" for="visa3"></label>
+                      <input  id="visa4"
+                              type="radio"
+                              name="puntos"
+                              value="5"
+                              ng-model="calificacion" />
+                      <label class="drinkcard-cc visa4" for="visa4"></label> 
+                      <input  id="visa5"
+                              type="radio"
+                              name="puntos"
+                              value="6"
+                              ng-model="calificacion" />
+                      <label class="drinkcard-cc visa5" for="visa5"></label>
+                    </div>
+                  </div>
+                </div> 
+                <div class="row">
+                  <div class="col"> <br>
+                    <textarea placeholder="Escriba su comentario" 
+                    class="shadow-company-div comment float-left-item"
+                    ng-model="comentario"></textarea>
+                  </div> 
+                </div>
+                <br>
+                <div class="row text-center">
+                  <div class="col" ng-class="{'EnviarUbicacionInactivo': 
+                        !EnviarUbicacion.isChecked,'EnviarUbicacion':EnviarUbicacion.isChecked}"> 
+                    <input  checked="checked"
+                            id="GPSControl"
+                            type="checkbox"  
+                            ng-model="EnviarUbicacion.isChecked"
+                            ng-click="ActivarGPS()"/>
+                    <label   class="GPSControl" for="GPSControl">{{gpsControlText}}
+                    </label> 
+                  </div>
+                  <div class="col"
+                    ng-click="GuardarComentario(calificacion, comentario)"> 
+                    <img  src="img/comentar.png" class="img-responsive">
+                  </div>
+                </div>                  
+              </div>
+            </div> 
+          </div>
+        </div><br>
+      </div>  
+    </ion-content>
+  </ion-pane>  
+</ion-side-menu-content>
+</ion-side-menus>

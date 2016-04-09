@@ -1,0 +1,48 @@
+<span ng-show="fotoUsuario"><br><br><br><br></span>
+<div class="row text-center"  ng-show="fotoUsuario"> 
+	<div class="col ">
+		<img src="{{fotoUsuario}}" class="img-responsive" style="width:50%;border-radius: 150%;"/>
+	</div>
+</div>
+<br>
+<div class="row text-center"  ng-show="!fotoUsuario"> 
+	<div class="col ">
+		<img src="img/logooriginalblanco.png" class="img-responsive" style="width:100%;"/>
+	</div>
+</div>
+<div class="row text-center"  ng-show="!fotoUsuario"> 
+	<div class="col ">
+		<input type="button" 
+		class="  btn-black-background-white" 
+		value="Registrarme con Facebook" 
+		ng-click="registrarseConFacebook()"  />
+	</div>
+</div>  
+<div class="row " ng-show="!fotoUsuario">
+	<div class="col text-center ">
+		<img src="img/pantallas/separador.png">
+	</div>
+</div>  
+<div class="row text-center">
+	<div class="col ">
+		<input type="text" 
+			class="control-box-login-white"  
+			placeholder="Nombre Completo" 
+			style="margin-bottom:10px;" 
+			ng-model="nombreUsuario"/>
+		<input type="email" 
+			class="control-box-login-white" 
+			ng-model="correoUsuario" 
+			placeholder="Correo electrónico" 
+			style="margin-bottom:10px;"/>
+		<input type="password"  
+			class="control-box-login-white" 
+			placeholder="Contraseña"
+			ng-model="contrasena"/>
+		<br/>
+		<input type="button" 
+			class=" btn-black-background-white" 
+			value="Crear cuenta" 
+			ng-click="crearCuenta(nombreUsuario, correoUsuario, contrasena)" />
+	</div>
+</div>  

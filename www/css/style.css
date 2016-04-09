@@ -1,0 +1,208 @@
+ /********************************************************/
+/* STYLE - 05-04-2016                                   */
+/********************************************************/
+
+/* CUSTOM IONIC CONTROLS */
+.ion-navicon , .ion-qr-scanner{
+	color: #ffffff;
+}
+
+/* CUSTOM STYLE COMENTAPP */
+@font-face {
+	font-family: Roboto-Black;
+	src:  url("../css/Roboto/Roboto-Black.ttf") ;
+	font-weight: bold;
+
+}
+
+@font-face {
+	font-family: Roboto-Light;
+	src:  url("../css/Roboto/Roboto-Light.ttf") ;
+}
+
+@font-face {
+	font-family: Roboto-Regular;
+	src:  url("../css/Roboto/Roboto-Regular.ttf") ;
+}
+
+.color-principal-green{    
+	background-color:#d6df21 !important;
+}
+
+
+
+/* CUSTOM STYLE LEFT MENU COMENTAPP */
+.color-list-menu-left{
+	color: #ffffff;
+}
+a.item{
+	border-color: #d6df21;
+}
+
+.item:visited {
+	background-color: cyan;
+}
+
+
+
+/* CUSTOM STYLE TOP BAR COMENTAPP */
+
+.item-input-wrapper{
+	width: auto;
+	margin-left: 10px;
+	height: 120%;
+	border:2px solid #ffffff;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	color: #eaee8f;
+}
+
+.mi-input::-webkit-input-placeholder { color: #eaee8f;  }
+.mi-input::-webkit-input-placeholder { color: #eaee8f; } /* WebKit */
+.mi-input:-moz-placeholder { color: #eaee8f; } /* Firefox 18- */
+.mi-input::-moz-placeholder { color: #eaee8f;  } /* Firefox 19+ */
+.mi-input:-ms-input-placeholder { color: #eaee8f; } /* IE 10+ */
+
+.ion-ios-search{ color: #eaee8f;  }
+.mi-input{ color: #eaee8f;  }
+
+
+/* STYLE LIST COMPANIES */
+.container{ 
+	padding: 2px 5px;
+}
+  
+
+  .comment{
+    width: 100%;
+    min-height: 80px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px; 
+    resize: none; 
+    color:#000000;   
+  }
+.company {  
+	border-top-left-radius: 12px ;
+	border-top-right-radius: 8px;
+	border-bottom-left-radius: 12px ;
+	border-bottom-right-radius: 8px;
+}
+.companyname{ 
+    font-family: "Roboto-Black";
+    color: #ee3e35;
+    font-size: 10px; 
+  }
+.company-detail{
+	  margin: 18px 0 0 0;
+    height: auto;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px; 
+}
+.shadow-company-div{
+    box-shadow: 4px 4px 12px #888888;
+  }
+
+  .float-left-item{
+    float: left;
+  }
+  .category-style{
+    color:#ee3e35;font-family: "Roboto-Regular";  font-size: 12px;
+  }
+
+  p{
+    font-family: "Roboto-Light"; 
+    font-size: 16px;
+  }
+
+
+.colorModa{
+  color: #2daae1;
+}
+
+.colorEducacion{
+  color: #f7931d;
+}
+
+.colorSalud{
+  color:#d91a5b;
+}
+
+.colorTransporte{
+  color:#57585a;
+}
+
+.colorResutaurante{
+  color:#ee3e35;
+}
+
+.colorConsecionario{
+  color:#3ab54a;
+}
+
+.colorSupermercado{
+  color:#283890;
+}
+
+.colorLibreria{
+  color:#744c27;
+}
+
+.colorTelefonia{
+  color:#1074bc;
+}
+
+.colorHospital{
+  color:#ee3e35;
+}
+
+.colorAeropuerto{
+  color:#0a5a31;
+}
+
+.colorHoteleria{
+  color:#262262;
+}
+
+.colorDiversion{
+  color:#f3c832;
+}
+
+ 
+/* LOGIN STYLE*/
+.control-box-login{ 
+  width: 100%; 
+  background-color: #d6df21;
+  color: #6c6d70;
+}
+
+textarea, input[type="text"] , input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"]{
+   border:3px #000 solid;
+   height: 40px;
+   border-radius: 4px ; 
+    font-size: 20px;
+    padding: 10px;
+    color: #000;
+}
+
+ 
+/* individual: webkit */
+.control-box-login::-webkit-input-placeholder { color:#000;   padding:  5px; 0}  
+.control-box-login-white::-webkit-input-placeholder { color:#000;   padding:  5px; 0}  
+.btn-black-background-green{
+  color:#d6df21;background-color:#000;padding:0;width: 100%; border:3px #000 solid; height: 40px;
+   border-radius: 4px; 
+    font-size: 20px; 
+}
+.btn-black-background-white{
+ color:#000;background-color:#d6df21;padding:0;width: 100%; border:3px #d6df21 solid; height: 40px;
+   border-radius: 4px; 
+    font-size: 20px; 
+}
+.control-box-login-white{
+   width: 100%; 
+  background-color: #fff;
+  color: #000;
+}

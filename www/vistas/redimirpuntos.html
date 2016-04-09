@@ -1,0 +1,44 @@
+ <ion-side-menus>
+  <ion-side-menu side="left" ng-include src="'vistas/menu.html'"></ion-side-menu>  
+  <ion-side-menu-content ng-init="init()" ng-controller="redimirpuntos">
+    <ion-pane>      
+    <ion-content>
+      <div class="bar bar-header item-input-inset color-principal-green">
+        <button class="button button-icon icon ion-navicon" ng-click="toggleLeft()">
+        </button>
+        <h1 class="title color-list-menu-left">Redimir Puntos</h1>
+      </div>
+      <div ng-model="contenedorcausas" class="has-header">  
+        <div ng-repeat="causa in Causas" class="container " >
+          <div class="company shadow-company-div">
+            <div class="row">
+              <div class="col">
+                <span class="companyname" style="color:#6c6d70;">
+                  {{causa.Puntos}} puntos</span><br>
+                <span class="companyname" style="color:#6c6d70;">
+                  {{causa.Empresa}}</span><br> 
+                <span class="companyname" style="color:#6c6d70;">{{causa.Categoria}}</span> 
+              </div>
+            </div> 
+            <div class="row">
+              <div class="col "> <hr/> 
+                <p>{{causa.Descripcion}}</p>  
+              </div> 
+            </div>  
+            <div class="row">
+              <div class="col  text-right" style="padding:0;">
+                <img  src="img/RedimirPuntos.png" ng-click="RedimirPuntos(causa.Id)" class="img-responsive " />
+              </div>
+            </div>
+          </div> 
+        </div> 
+      </div>
+    </div>
+  </div>     
+</ion-content> 
+<div class="bar bar-footer color-principal-green">
+  <div class="title color-list-menu-left"><i class="icon ion-ios-heart"></i> {{PuntosUsuario}} Puntos</div>
+</div>
+</ion-pane>
+</ion-side-menu-content>
+</ion-side-menus>

@@ -1,0 +1,29 @@
+<ion-side-menus>
+  <ion-side-menu side="left" ng-include src="'vistas/menu.html'"></ion-side-menu>
+  <ion-side-menu-content ng-controller="principal">
+    <ion-pane>      
+        <ion-content> 
+        <div class="bar bar-header item-input-inset color-principal-green">
+          <button class="button button-icon icon ion-navicon" ng-click="toggleLeft()">
+          </button>            
+          <label class="item-input-wrapper color-principal-green">              
+            <i class="icon ion-ios-search placeholder-icon"></i>
+            <input  type="text" 
+                    placeholder="Buscar Empresa" 
+                    class="mi-input"
+                    ng-model="NombreEmpresa"
+                    ng-enter="{{NombreEmpresa}}"
+                    ng-click="LimpiarNombreEmpresa()">
+          </label>  
+          <button class="button button-icon icon ion-qr-scanner" ng-click="EscanearQr()">
+          </button>
+        </div>
+        <img src="img/bienvenido.png" class="img-responsive fondo" style="width: 100%; height: auto;"/>
+      </ion-content>
+      <div  class="bar bar-footer color-principal-green" ui-sref="redimirpuntos" 
+            ng-show="fondoprincipal">
+        <div class="title color-list-menu-left"><i class="icon ion-ios-heart"></i> {{PuntosUsuario}} Puntos</div>
+      </div>
+    </ion-pane>
+  </ion-side-menu-content>
+</ion-side-menus>
